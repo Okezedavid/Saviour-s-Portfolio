@@ -12,7 +12,7 @@
   </head>
   <body>
     <header>
-      <a href="#" class="logo">Saviour</a>
+      <!-- <a href="#" class="logo">Saviour</a> -->
       <nav id="navbar">
         <a href="#home" class="active">Home</a>
         <a href="#services">Specialties</a>
@@ -31,7 +31,7 @@
         <img src="images/20221002_231227-min.webp" alt="Saviour Image" />
       </div>
       <div class="home-content">
-        <h1>Hi, It's <span>Saviour</span></h1>
+        <h1>Yo, It's <span>Saviour</span></h1>
         <h3 class="typing-text">I'm a <span></span></h3>
         <p>
           👋 Hi, I'm Essien Saviour Lambert I'm a student taking my first steps
@@ -166,8 +166,24 @@
     <script>
       const toggle = document.getElementById("menu-toggle");
       const navbar = document.getElementById("navbar");
+
       toggle.addEventListener("click", () => {
         navbar.classList.toggle("active");
+      });
+
+      // Close menu when clicking on a link
+      const navLinks = document.querySelectorAll("nav a");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          navbar.classList.remove("active");
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!navbar.contains(e.target) && !toggle.contains(e.target)) {
+          navbar.classList.remove("active");
+        }
       });
     </script>
   </body>
